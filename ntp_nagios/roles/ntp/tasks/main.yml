@@ -1,0 +1,2 @@
+- include: ntp_installation.yml
+- include: post_config.yml

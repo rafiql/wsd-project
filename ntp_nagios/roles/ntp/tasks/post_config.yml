@@ -1,0 +1,12 @@
+---
+- name: Copy NTP configuration file
+  copy:
+    src: files/ntp.conf  # Corrected file path
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart NTP service
+
+
+

@@ -1,0 +1,31 @@
+---
+- name: Install Nagios plugins
+  apt:
+    name: nagios-plugins
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Copy Nagios hosts configuration template
+  template:
+    src: nagios_hosts.conf.j2
+    dest: /etc/nagios/conf.d/nagios_hosts.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Nagios service
+
+- name: Copy Nagios services configuration template
+  template:
+    src: nagios_services.conf.j2
+    dest: /etc/nagios/conf.d/nagios_services.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Nagios service
+
+- name: Ensure Nagios service is started and enabled
+  systemd:
+    name: nagios
+    state: started
+    enabled: yes
+

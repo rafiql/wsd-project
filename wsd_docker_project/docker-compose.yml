@@ -1,0 +1,23 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_server
+    ports:
+      - "80:80"  # Map host port 80 to container port 80
+    volumes:
+      - nginx_logs:/var/log/nginx  # Volume for persistent logs
+    networks:
+      nginx_bridge:
+        ipv4_address: 172.20.8.10  # Specify static IP for container
+
+volumes:
+  nginx_logs:
+    driver: local  # Use local volume driver to ensure persistence
+
+networks:
+  nginx_bridge:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.8.0/24
+

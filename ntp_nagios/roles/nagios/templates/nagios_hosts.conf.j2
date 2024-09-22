@@ -1,0 +1,9 @@
+# Nagios hosts configuration
+define host {
+    host_name       {{ machine_name }}
+    address         {{ machine_ip }}
+    check_command   {{ check_ping }}
+    active_checks_enabled   {{ active_check_value }}
+    active_checks_enabled   {{ passive_check_value }}
+}
+

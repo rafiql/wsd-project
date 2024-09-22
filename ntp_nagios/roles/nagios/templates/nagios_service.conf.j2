@@ -1,0 +1,9 @@
+# Nagios services configuration
+define service {
+    service_description  {{ service_name }}
+    host_name            {{ machine_name }}
+    service_description  {{ service_name }}
+    check_command        {{ check_ntp }}
+    check_interval       {{ check_interval }}
+}
+

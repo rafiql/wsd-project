@@ -1,0 +1,12 @@
+#Host information
+machine_name: 'monitoring.fra1.internal'
+machine_ip: '20.77.12.140'
+check_ping: 'ping 20.77.12.140'
+active_check_value: '1'
+passive_check_value: '1'
+
+
+#Device information
+service_name: 'ntp_process'
+check_ntp: 'ntp'
+check_interval: '10'

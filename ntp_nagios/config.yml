@@ -1,0 +1,9 @@
+---
+- name: Install and configure NTP and Nagios
+  hosts:  ntpd_group
+  become: yes
+  roles:
+    - ntp
+    - nagios
+
+
